@@ -15,7 +15,7 @@ class CreateLocationAssetsTable extends Migration
     {
         Schema::create('location_assets', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('location_id');
+            $table->unsignedBigInteger('location_id');
             $table->string('value',350);
             $table->enum('type',\App\location_assets::TYPE_STATUS);
             $table->timestamps();
