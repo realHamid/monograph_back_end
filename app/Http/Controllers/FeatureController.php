@@ -25,5 +25,20 @@ class FeatureController extends Controller
 
     }
 
+    public function view ( ){
+
+        $features = feature::orderBy('id','desc')->get();
+
+        foreach ($features as $key =>  $row){
+            unset($row['created_at']);
+            unset($row['updated_at']);
+            unset($row['deleted_at']);
+        }
+
+        return json_encode($features);
+    }
+
+
+
 
 }
