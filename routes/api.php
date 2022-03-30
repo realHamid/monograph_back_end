@@ -30,6 +30,7 @@ Route::post('login','UserController@login');
 Route::group(['prefix' => 'feature'], function () {
     Route::post('','FeatureController@save')->middleware("ApiCustomAuth");
     Route::post('/list','FeatureController@view')->middleware("ApiCustomAuth");
+    Route::post('/deleted','FeatureController@delete')->middleware("ApiCustomAuth");
 });
 
 
