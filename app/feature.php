@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class feathers extends Model
+class feature extends Model
 {
 
     use SoftDeletes;

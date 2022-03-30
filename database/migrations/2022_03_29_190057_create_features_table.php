@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFeathersTable extends Migration
+class CreateFeaturesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateFeathersTable extends Migration
      */
     public function up()
     {
-        Schema::create('feathers', function (Blueprint $table) {
+        Schema::create('features', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->date('date')->nullable();
