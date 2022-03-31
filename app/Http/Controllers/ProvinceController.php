@@ -36,4 +36,16 @@ class ProvinceController extends Controller
 
         return json_encode($features);
     }
+
+
+    public function delete( Request $request ){
+
+        $deleted = provinces::where(['id' => $request->id])->delete();
+
+        if($deleted){
+            return json_encode(['status' =>  'true' ]);
+        }else {
+            return json_encode(['status' =>  'false']);
+        }
+    }
 }
