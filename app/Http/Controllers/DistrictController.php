@@ -52,5 +52,16 @@ class DistrictController extends Controller
     }
 
 
+    public function delete( Request $request ){
+
+        $deleted = districts::where(['id' => $request->id])->delete();
+
+        if($deleted){
+            return json_encode(['status' =>  'true' ]);
+        }else {
+            return json_encode(['status' =>  'false']);
+        }
+    }
+
 
 }
