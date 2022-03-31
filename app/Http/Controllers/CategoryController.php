@@ -34,4 +34,15 @@ class CategoryController extends Controller
         return json_encode($category);
     }
 
+    public function delete( Request $request ){
+
+        $deleted = categories::where(['id' => $request->id])->delete();
+
+        if($deleted){
+            return json_encode(['status' =>  'true' ]);
+        }else {
+            return json_encode(['status' =>  'false']);
+        }
+    }
+
 }
