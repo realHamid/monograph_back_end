@@ -44,7 +44,7 @@ Route::group(['prefix' => 'district'], function () {
 
     Route::post('listProvince','DistrictController@listProvince')->middleware("ApiCustomAuth");
     Route::post('','DistrictController@save')->middleware("ApiCustomAuth");
-//    Route::post('/list','ProvinceController@view')->middleware("ApiCustomAuth");
+    Route::post('/list','DistrictController@view')->middleware("ApiCustomAuth");
 //    Route::post('/deleted','ProvinceController@delete')->middleware("ApiCustomAuth");
 });
 

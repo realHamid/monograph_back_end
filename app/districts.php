@@ -20,8 +20,8 @@ class districts extends Model
 
 //   region relation
 
-    public function districts(){
-        return $this->belongsTo(provinces::class);
+    public function provinces(){
+        return $this->belongsTo('App\provinces','province_id');
     }
 
 //   end region relation

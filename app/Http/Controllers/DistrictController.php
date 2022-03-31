@@ -39,6 +39,18 @@ class DistrictController extends Controller
 
     }
 
+    public function view (){
+
+        $features = districts::orderBy('id','desc')->get();
+
+        foreach ($features as $key =>  $row){
+            $row['province_name'] = $row->provinces->name;
+            unset($row['created_at'],$row['updated_at'],$row['deleted_at'],$row['provinces']);
+        }
+
+        return json_encode($features);
+    }
+
 
 
 }
