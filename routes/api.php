@@ -34,6 +34,9 @@ Route::group(['prefix' => 'feature'], function () {
 });
 
 
+Route::group(['prefix' => 'province'], function () {
+    Route::post('','ProvinceController@save')->middleware("ApiCustomAuth");
+});
 
 
 Route::get("/notallowed",function(){
