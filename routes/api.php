@@ -48,6 +48,11 @@ Route::group(['prefix' => 'district'], function () {
     Route::post('/deleted','DistrictController@delete')->middleware("ApiCustomAuth");
 });
 
+Route::group(['prefix' => 'category'], function () {
+    Route::post('','CategoryController@save')->middleware("ApiCustomAuth");
+    Route::post('/list','CategoryController@view')->middleware("ApiCustomAuth");
+    Route::post('/deleted','CategoryController@delete')->middleware("ApiCustomAuth");
+});
 
 Route::get("/notallowed",function(){
     return json_encode(["status"=>"notallowed"]);
