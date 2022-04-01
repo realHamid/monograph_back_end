@@ -91,5 +91,22 @@ class LocationController extends Controller
     }
 
 
+    public function view(){
+
+        $location = locations::orderBy('id','desc')->get();
+
+        foreach ( $location as $row  ){
+            $row['province_name']   = $row->province->name;
+            $row['districts_name']  = (!empty($row->district->name)) ? $row->district->name : ' ';
+            $row['categories_name'] = $row->category->name;
+
+            unset($row['created_at'],$row['updated_at'],$row['deleted_at'],$row['province_id'],$row['category_id'],$row['district_id'],$row['province'],$row['district'],$row['category']);
+        }
+
+        return json_encode($location);
+
+    }
+
+
 
 }

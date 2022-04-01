@@ -24,17 +24,17 @@ class locations extends Model
 
     public function province()
     {
-       return $this->belongsTo(provinces::class);
+       return $this->belongsTo('App\provinces','province_id');
     }
 
     public function district()
     {
-        return $this->belongsTo(districts::class);
+        return $this->belongsTo('App\districts','district_id');
     }
 
     public function category()
     {
-        return $this->belongsTo(categories::class);
+        return $this->belongsTo('App\categories','category_id');
     }
 
 //  end region relation
