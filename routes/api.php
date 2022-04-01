@@ -54,6 +54,20 @@ Route::group(['prefix' => 'category'], function () {
     Route::post('/deleted','CategoryController@delete')->middleware("ApiCustomAuth");
 });
 
+Route::group(['prefix' => 'location'], function () {
+
+    Route::post('/provinces','LocationController@get_provinces')->middleware("ApiCustomAuth");
+    Route::post('/districts','LocationController@get_districts')->middleware("ApiCustomAuth");
+    Route::post('/category','LocationController@get_category')->middleware("ApiCustomAuth");
+    Route::post('/feature','LocationController@get_feature')->middleware("ApiCustomAuth");
+
+    Route::post('','LocationController@save')->middleware("ApiCustomAuth");
+    Route::post('/list','LocationController@view')->middleware("ApiCustomAuth");
+    Route::post('/deleted','LocationController@delete')->middleware("ApiCustomAuth");
+});
+
+
+
 Route::get("/notallowed",function(){
     return json_encode(["status"=>"notallowed"]);
 });
