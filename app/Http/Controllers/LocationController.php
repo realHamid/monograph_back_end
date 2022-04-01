@@ -108,5 +108,18 @@ class LocationController extends Controller
     }
 
 
+    public function delete( Request $request ){
+
+        $deleted = locations::where(['id' => $request->id])->delete();
+
+        if($deleted){
+            return json_encode(['status' =>  'true' ]);
+        }else {
+            return json_encode(['status' =>  'false']);
+        }
+
+    }
+
+
 
 }
