@@ -25,6 +25,29 @@ class UserController extends Controller
 
     }
 
+    public function save( Request $request ){
+
+        $token = openssl_random_pseudo_bytes(20);
+        $token = bin2hex($token);
+
+        $insert = provinces::create([
+            'full_name'     => $request->full_name,
+            'last_name'     => $request->last_name,
+            'email'         => $request->email,
+            'phone'         => $request->phone,
+            'username'      => $request->username,
+            'password'      => $request->password,
+            'api_token'     => $request->$token,
+        ]);
+
+        if($insert){
+            return json_encode(['status' =>  'true' ]);
+        }else {
+            return json_encode(['status' =>  'false']);
+        }
+
+    }
+
 
 
 }
