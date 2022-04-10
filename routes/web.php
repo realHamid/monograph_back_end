@@ -12,4 +12,9 @@ Route::get('User/{id}',function($id){
 });
 
 
+Route::get('user/{name?}', function ($name = 'TutorialsPoint') {
+    return $name;
+});
+
+
 
